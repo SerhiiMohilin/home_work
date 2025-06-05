@@ -1,0 +1,16 @@
+<h1>Photos</h1>
+
+<div class="gallery">
+  @for(photo of photos; track photo.id) {
+    <div class="photo-card">
+      <img
+        loading="lazy"
+        [alt]="photo.author"
+        [src]="'https://picsum.photos/id/' + photo.id + '/400/300'"
+      />
+      <p>{{ photo.author }}</p>
+    </div>
+  } @empty {
+    <h2>No photo</h2>
+  }
+</div>

@@ -1,0 +1,26 @@
+<div class="page">
+    <h1>Sign In</h1>
+   
+    <form [formGroup]="form" (submit)="onSubmit()">
+      <input
+        formControlName="username"
+        type="text"
+        placeholder="Please enter the user name"
+      />
+      <div>
+        <input
+          [type]="isPasswordVisible ? 'password' : 'text'"
+          formControlName="password"
+          placeholder="Please enter the password"
+        />
+        <button type="button" (click)="onTogglePasswordVisibility()">
+          Hide/See
+        </button>
+      </div>
+      <button type="submit">Sign In!</button>
+    </form>
+   
+    @if (showAlert) {
+    <div class="custom-alert">Error: {{ alertErrorMessage }}</div>
+    }
+  </div>  

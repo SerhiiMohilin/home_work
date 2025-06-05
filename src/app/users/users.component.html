@@ -1,0 +1,27 @@
+<h1>Users</h1>
+
+<div class="user-list">
+  @for (user of usersService.users; track user.email) {
+    <div class="user-card">
+      <div class="username-wraper">
+        <h2>{{ user.name }}</h2>
+        <h2>({{ user.username }})</h2>
+      </div>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Phone:</strong> {{ user.phone }}</p>
+      <p><strong>Website:</strong> <a href="http://{{ user.website }}" target="_blank">{{ user.website }}</a></p>
+      <p><strong>Company:</strong> {{ user.company.name }} - "{{ user.company.catchPhrase }}"</p>
+      
+      <div class="wraper">
+        <a class="view-link" [routerLink]="['/users', user.id]">View Page</a>
+        <button (click)="onDelete(user)">Delete user</button>
+      </div>
+
+      <div class="custom-alert" *ngIf="showAlert">
+        {{deletedName}} ({{deletedUsername}}) was deleted"
+      </div>
+    </div>
+  } @empty {
+    <p class="empty">No users here</p>
+  }
+</div>

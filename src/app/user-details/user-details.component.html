@@ -1,0 +1,8 @@
+@if (user) {
+    <h1>User: {{user.name}}</h1>
+    <p>Email: {{user.email}}</p>
+    <p>Phone: {{user.phone}}</p>
+} @else{
+    <P>No users here</P>
+}
+<button (click)="back()">Back</button>

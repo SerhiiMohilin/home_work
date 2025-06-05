@@ -1,0 +1,14 @@
+.pending {
+    background: lightblue;
+    padding: 5px;
+}
+
+.rejected {
+    background: lightcoral;
+    padding: 5px;
+}
+
+.approved {
+    background: lightgreen;
+    padding: 5px;
+}
