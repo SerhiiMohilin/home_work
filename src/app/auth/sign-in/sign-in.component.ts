@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { SignInDataType } from '../auth.types';
+import { SignedUserDataType, SignInDataType } from '../auth.types';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,7 +20,7 @@ export class SignInComponent {
   showAlert = false;
   alertErrorMessage = '';
 
-  isPasswordVisible: boolean = false;
+  isPasswordHidden = false;
 
   form = new FormGroup({
     username: new FormControl('emilys', [Validators.required]),
@@ -30,28 +30,26 @@ export class SignInComponent {
   constructor(private router: Router, private authService: AuthService) { }
 
   onTogglePasswordVisibility() {
-    this.isPasswordVisible = !this.isPasswordVisible;
+    this.isPasswordHidden = !this.isPasswordHidden;
   }
 
   onSubmit() {
     if (!this.form.valid) {
       this.showAlert = true;
 
-      // if (this.form.value?.password?.length < 6) {
-      //   this.form.setErrors({ password: 'Password is not long enough' });
-      //   this.alertErrorMessage = 'Password is not long enough';
-      // }
-
       setTimeout(() => {
         this.showAlert = false;
       }, 3000);
-      return;
 
+      return;
     }
 
-    this.authService.signIn(this.form.value as SignInDataType).subscribe((response) => {
-      this.router.navigate(['auth', 'user-dashboard'])
-      console.log(response, 'response')
-    });
+    this.authService
+      .signIn(this.form.value as SignInDataType)
+      .subscribe((response) => {
+        this.authService.authUserData = response;
+        this.router.navigate(['auth', 'user-dashboard']);
+        localStorage.setItem('lastSeen', new Date().toISOString());
+      });
   }
 }
