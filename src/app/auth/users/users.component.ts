@@ -1,12 +1,16 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { UserDataType } from './users.types';
+import { UserCardComponent } from '../user-card/user-card.component';
 
 @Component({
   selector: 'app-users',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, UserCardComponent],
   templateUrl: './users.component.html',
-  styleUrl: './users.component.css'
+  styleUrls: ['./users.component.css']
 })
 export class UsersComponent {
   @Input() usersData: UserDataType[] = [];
 }
+

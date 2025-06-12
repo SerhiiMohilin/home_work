@@ -1,26 +1,10 @@
 <h2>Users</h2>
 
-<!-- 
-    Завдання:
-    Використовуючи @for(of) @empty
-    вивести користувачів (usersData)
-    у верстку данного файлу
-
-    1. Створити компонент user-card (ng g c ./auth/user-card), який буде карткою для 1 користувача
-       Вивести інформацію через цей компонент (@Input) (верстка)
-       UserDataType
-
-    ./users/users.component
-    ./users/users.service
-    ./users/users-dashboard
-    ./(css*)
-
-    for usersData {
-        <app-user-card [user]="user" />
+<div class="users-list">
+    @for (user of usersData; track user.id) {
+      <app-user-card [user]="user" />
+    } @empty {
+      <p>Users not found</p>
     }
-        
-    2. https://angular.dev/api/core/Input - прочитати
-
-    3. Стилізувати інсуючий ./users-dashboard.css компонент (адаптивно*)
-    
--->
+  </div>  
+  

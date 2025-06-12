@@ -1,0 +1,13 @@
+.users-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.empty-message {
+    font-size: 1.1rem;
+    color: #888;
+    text-align: center;
+    padding: 2rem;
+}

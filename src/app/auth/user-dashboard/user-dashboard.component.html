@@ -3,12 +3,13 @@
 
   @if(authService.authUserData) {
     <app-user-profile
-      viewVariant="extended"
+      viewVariant="limited"
     />
   }
 </div>
 
-
-@if(usersService.users) {
+@if (usersService.users) {
   <app-users [usersData]="usersService.users" />
+} @else {
+  <p>Немає доступних користувачів.</p>
 }
