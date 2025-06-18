@@ -6,10 +6,12 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { PhotosComponent } from './photos/photos.component';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { UserDashboardComponent } from './auth/user-dashboard/user-dashboard.component';
+import { PipesComponent } from './pipes/pipes.component';
 
 export const routes: Routes = [
     { path: "counter", component: CounterComponent },
     { path: "status", component: StatusComponent },
+    { path: "pipes", component: PipesComponent },
     { path: "users", component: UsersComponent },
     { path: "users/:id", component: UserDetailsComponent },
     { path: "photos", component: PhotosComponent },

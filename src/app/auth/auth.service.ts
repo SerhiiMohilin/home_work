@@ -18,5 +18,4 @@ export class AuthService {
         tap((data) => this.authUserData = data)
       );
   }
-
 }

@@ -1,0 +1,32 @@
+<h1>Pipes</h1>
+
+<h2>Basic Pipes</h2>
+<p>Uppercase {{ "hello" | uppercase }}</p>
+<p>Lowercase {{ "HELLO" | lowercase }}</p>
+<p>Title case 1 {{ "hello world!!" | titlecase }}</p>
+<p>Title case 2 (names) {{ "igor sergienko" | titlecase }}</p>
+<p>Slice {{ "Lorem ipsum dolor" | slice:-5 }}</p>
+<p>Slice for arrays {{ [1,2,3,4,5,6] | slice:0:3 }}</p>
+
+<p>Currency {{ 100 | currency:"CNY" }}</p>
+<p>Percents {{ 0.60 | percent }}</p>
+
+
+<p>Dates (default) {{ currentDate | date }}</p>
+<p>Dates (short) {{ currentDate | date:'short' }}</p>
+<p>Dates (custom) {{ currentDate | date:'dd.MM.yy'}}</p>
+<p>Dates (custom long year) {{ currentDate | date:'dd-MM-yyyy'}}</p>
+<p>Dates (custom long month) {{ currentDate | date:'dd.MMMM.yyyy'}}</p>
+<p>Dates (custom with time) {{ currentDate | date:'dd.MM.yy | hh:mm:ss aa'}}</p>
+
+<p>Date {{ currentDate }}</p>
+
+
+<pre>JSON {{ data | json }}</pre>
+
+<h2>Custom pipes</h2>
+
+<p>DescribeObject {{ data | describeObject:"~~~~~~~~" }}</p>
+
+<p>{{ 'Angular' | reverseString }}</p>
+<!-- Виведе: ralugnA -->
